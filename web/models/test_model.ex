@@ -15,6 +15,8 @@ defmodule EmptyValues.TestModel do
   """
   def changeset(struct, params \\ %{}) do
     struct
+    |> change(%{})
+    |> Map.put(:empty_values, @empty_values)
     |> cast(params, [:foo, :bar])
     |> validate_required([:foo, :bar])
   end
